@@ -4,13 +4,15 @@ namespace App\Repositories\Contracts;
 
 interface IBase
 {
+    public function withCriteria(...$criteria);
+
     public function all();
 
-    public function find($id);
+    public function allWithPagination($count = 10);
 
-    public function findWhere($column, $value);
+    public function findOrFail($id);
 
-    public function findWhereFirst($column, $value);
+    public function first();
 
     public function firstOrCreate($data);
 
@@ -28,6 +30,9 @@ interface IBase
 
     public function restore($id);
 
-    public function allWithPagination($count = 10);
+    public function addMedia($record, $media, $collection);
+
+    public function clearMediaCollection($record, $collection);
+
 
 }
